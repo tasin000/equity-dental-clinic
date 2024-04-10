@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import Header from "./components/shared/Header/Header";
+import Footer from "./components/shared/Footer/Footer";
+import HomeLayout from './components/pages/Home/HomeLayout/HomeLayout';
+import ServicesLayout from "./components/pages/Services/ServicesLayout/ServicesLayout";
+import Blogs from './components/pages/Blogs/Blogs';
+import About from "./components/pages/About/About";
+import Contact from "./components/pages/Contact/Contact";
+import Login from "./components/pages/Auth/Login/Login";
+import SignUp from "./components/pages/Auth/SignUp/SignUp";
+import auth from './firebase/firebase.init';
+import {useAuthState} from "react-firebase-hooks/auth";
 
 function App() {
+  const [loggedInUser, loggedInLoading, loggedInError] = useAuthState(auth);
+  if(loggedInLoading){
+    return;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path='/' element={<HomeLayout></HomeLayout>} />
+        <Route path='/services' element={<ServicesLayout></ServicesLayout>} />
+        <Route path='/about' element={<About></About>} />
+        <Route path='/blogs' element={<Blogs></Blogs>} />
+        <Route path='/contact' element={<Contact></Contact>} />
+        <Route path='/login' element={<Login></Login>} />
+        <Route path='/sign_up' element={<SignUp></SignUp>} />
+        <Route path='*' element={<h1>404! Page not found</h1>} />
+      </Routes>
+
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,0 +1,32 @@
+.navbar{
+    background-color: #fff;
+    padding: 10px 30px;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Roboto Slab", serif;
+}
+
+.nav-logo img{
+    height: 60px;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.nav-links a{
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--blue);
+    transition: 0.2s linear;
+}
+
+.nav-links a:hover{
+    color: var(--pink);
+}
