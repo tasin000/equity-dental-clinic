@@ -1,19 +1,21 @@
+/* common styles */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.w-50{
+.w-50 {
   width: 50%;
 }
 
-.banner{
+.banner {
   background-color: var(--blue);
   padding: 40px 25px 20px;
   font-family: "Josefin Sans", sans-serif;
 }
 
-.main-btn{
+.main-btn {
   padding: 22px 55px;
   text-align: center;
   border-radius: 3px;
@@ -24,3 +26,18 @@
   cursor: pointer;
 }
 
+.header-container {
+  margin: 50px 0;
+}
+
+.page-heading {
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--blue);
+  color: var(--white);
+  width: fit-content;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 35px;
+  font-weight: 600;
+}

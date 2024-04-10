@@ -1,0 +1,6 @@
+.service-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin: 75px 5px;
+}

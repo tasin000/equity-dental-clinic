@@ -1,3 +1,5 @@
+*template: donto-react.netlify.app*
+
 # Home:
 - navbar✔️, banner✔️, services, testimonials and footer
 

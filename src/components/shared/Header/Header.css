@@ -1,7 +1,8 @@
 .navbar{
+    border: 2px solid var(--pink);
     background-color: #fff;
     padding: 10px 30px;
-    margin: 10px 0;
+    margin: 10px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -16,8 +17,8 @@
 .nav-links{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: space-around;
+    width: 70%;
 }
 
 .nav-links a{
