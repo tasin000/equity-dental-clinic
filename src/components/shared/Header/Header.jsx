@@ -1,19 +1,20 @@
 import React from 'react';
 import "./Header.css";
 import logo from "./../../../assets/images/logo.jpg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {useAuthState} from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.init";;
 
 const Header = () => {
-    const [loggedInUser, loggedInLoading, loggedInError] = useAuthState(auth);
+    const navigate = useNavigate();
+    const [loggedInUser, loggedInLoading,] = useAuthState(auth);
     if(loggedInLoading){
         return;
     }
     return (
         <div className="container">
             <div className='navbar'>
-            <div className="nav-logo">
+            <div onClick={() => navigate("/")} className="nav-logo">
                 <img src={logo} alt="..." />
             </div>
 
