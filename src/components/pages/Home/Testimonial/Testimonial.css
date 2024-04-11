@@ -3,6 +3,7 @@
     border-radius: 5px;
     margin: 25px 0;
     border: 1px solid var(--gray);
+    transition: 0.2s linear;
 }
 
 .testimonial-patient{
@@ -14,7 +15,7 @@
 .testimonial-patient p{
     color: var(--pink);
     font-family: "Josefin Sans", serif;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .testimonial-patient span{
@@ -24,8 +25,8 @@
 }
 
 .testimonial-review{
-    font-size: 20px;
-    line-height: 35px;
+    font-size: 18px;
+    line-height: 32px;
     font-family: "Roboto Slab", sans-serif;
     margin: 20px 0;
 }

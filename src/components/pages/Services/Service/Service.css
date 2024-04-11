@@ -5,6 +5,11 @@
   background: transparent;
   font-family: "Roboto Slab", sans-serif;
   position: relative;
+  transition: 0.25s linear;
+}
+
+.service-card:hover, .testimonial-card:hover{
+  scale: 1.05;
 }
 
 .service-card img {
