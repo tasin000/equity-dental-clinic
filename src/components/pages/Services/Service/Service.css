@@ -8,10 +8,6 @@
   transition: 0.25s linear;
 }
 
-.service-card:hover, .testimonial-card:hover{
-  scale: 1.05;
-}
-
 .service-card img {
   width: 100%;
   border-radius: 5px 5px 0 0;

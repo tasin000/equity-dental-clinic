@@ -44,10 +44,10 @@
 
 .section-heading {
   width: fit-content;
-  margin: 70px auto 0;
+  margin: 0 auto;
 }
 
-.section-heading {
+.section-heading h3{
   font-size: 40px;
   text-align: center;
   font-family: "Josefin Sans", serif;
@@ -56,5 +56,20 @@
 }
 
 .my-large{
-  margin: 180px 0;
+  margin: 100px 0;
+}
+
+.service-card:hover, .testimonial-card:hover{
+  scale: 1.05;
+}
+
+.banner-btn-group button:first-child, .services-view-all-btn{
+  background-color: var(--pink);
+  color: var(--white);
+  border: 1px solid var(--pink);
+  display: inline;
+}
+
+.services-view-all-btn{
+  margin: 20px auto;
 }

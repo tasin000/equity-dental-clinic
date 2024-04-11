@@ -1,0 +1,32 @@
+.footer-container{
+    font-family: "Roboto Slab", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0 20px;
+    position: static;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links a{
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.footer-links a:not(:last-child)::after{
+    content: "|";
+    margin: 0 18px;
+    font-weight: 800;
+    color: var(--black);
+}

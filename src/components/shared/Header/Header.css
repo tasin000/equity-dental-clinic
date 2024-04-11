@@ -31,3 +31,8 @@
 .nav-links a:hover{
     color: var(--pink);
 }
+
+a.active-nav-link{
+    border-bottom: 3px solid var(--pink);
+    color: var(--pink);
+}

@@ -1,12 +1,21 @@
 import React from 'react';
 import "./ServiceCards.css";
 import Service from '../Service/Service';
+import Loading from '../../../shared/Loading/Loading';
+import Error from '../../../shared/Error/Error';
 
-const ServiceCards = ({treatments}) => {
+const ServiceCards = ({treatmentsState}) => {
+    const [treatments, loading, error] = treatmentsState;
+    if (loading) {
+        return <Loading></Loading>;
+    }
+
     return (
         <div className="service-cards">
-                        {treatments.map(treatment => <Service key={treatment.id} treatment={treatment} />)}
-                    </div>
+            {treatments.map(treatment => <Service key={treatment.id} treatment={treatment} />)}
+
+            {error && <Error err={error}></Error>}
+        </div>
     );
 };
 

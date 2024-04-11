@@ -11,17 +11,15 @@ import Login from "./components/pages/Auth/Login/Login";
 import SignUp from "./components/pages/Auth/SignUp/SignUp";
 import auth from './firebase/firebase.init';
 import {useAuthState} from "react-firebase-hooks/auth";
+import Appointment from './components/pages/Appointment/Appointment';
 
 function App() {
-  const [loggedInUser, loggedInLoading, loggedInError] = useAuthState(auth);
-  if(loggedInLoading){
-    return;
-  }
   return (
     <div>
       <Routes>
         <Route path='/' element={<HomeLayout></HomeLayout>} />
         <Route path='/services' element={<ServicesLayout></ServicesLayout>} />
+        <Route path='/services/:serviceId' element={<Appointment></Appointment>} />
         <Route path='/about' element={<About></About>} />
         <Route path='/blogs' element={<Blogs></Blogs>} />
         <Route path='/contact' element={<Contact></Contact>} />

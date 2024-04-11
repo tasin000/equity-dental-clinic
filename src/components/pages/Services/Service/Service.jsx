@@ -16,7 +16,7 @@ const Service = ({treatment}) => {
                     {name}
                 </div>
                 <h3>$ {price}</h3>
-                <p>{desc.length > 80 ? desc.slice(0, 80) + "...": desc}</p>
+                <p>{desc?.length > 80 ? desc.slice(0, 80) + "...": desc}</p>
                 <div>
                 <p className='appoint-link' onClick={() => navigate(`/services/${id}`)}>Appoint Now</p>
                 </div>

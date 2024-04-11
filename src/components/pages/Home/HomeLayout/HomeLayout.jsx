@@ -9,14 +9,16 @@ import useShuffle from "../../../../hooks/useShuffle";
 import { useNavigate } from "react-router-dom";
 import Testimonials from '../Testimonials/Testimonials';
 
+
 const HomeLayout = () => {
     const navigate = useNavigate();
-    const treatments = useFetch("treatments.json");
+    const [treatments, loading, error] = useFetch("treatments.json");
     useShuffle(treatments);
+    const sliced_services = treatments.slice(0, 3);
     const homeBanner = {
         mainTitle: "Better Dentistry        ",
         subTitle: "Better Life Through        ",
-        desc: "Join us to a fun and friendly dental environment. Our professionals are working so hard to see smile on your face that you deserve! We are dedicated about our duties.",
+        desc: "Join Equity Dental Clinic to a fun and friendly dental environment. Our professionals are working so hard to see smile on your face that you deserve! We are dedicated about our duties.",
         img: homeBannerImg,
     }
     return (
@@ -41,7 +43,7 @@ const HomeLayout = () => {
                     <div className="section-heading">
                         <h3>Treatments We Provide</h3>
                     </div>
-                    <ServiceCards treatments={treatments.slice(0, 3)}></ServiceCards>
+                    <ServiceCards treatmentsState={[sliced_services, loading, error]}></ServiceCards>
 
                     <div onClick={() => navigate('/services')} className="main-btn services-view-all-btn">
                         View All Treatments
