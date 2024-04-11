@@ -1,0 +1,31 @@
+.testimonial-card{
+    padding: 20px;
+    border-radius: 5px;
+    margin: 25px 0;
+    border: 1px solid var(--gray);
+}
+
+.testimonial-patient{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.testimonial-patient p{
+    color: var(--pink);
+    font-family: "Josefin Sans", serif;
+    font-size: 35px;
+}
+
+.testimonial-patient span{
+    margin: 0 15px;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.testimonial-review{
+    font-size: 20px;
+    line-height: 35px;
+    font-family: "Roboto Slab", sans-serif;
+    margin: 20px 0;
+}

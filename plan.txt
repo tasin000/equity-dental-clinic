@@ -1,14 +1,14 @@
 *template: donto-react.netlify.app*
 
 # Home:
-- navbar✔️, banner✔️, services, testimonials and footer
+- navbar✔️, banner✔️, services ✔️, testimonials ✔️ and footer
 
 # Services:
 
 
 
-- Service: name , price, image, desc and checkout btn
-- services card animation
+- Service: name , price, image, desc and checkout btn ✅
+- services card animation ✅
 
 
 

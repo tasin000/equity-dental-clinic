@@ -29,10 +29,11 @@
     justify-content: center;
 }
 
-.banner-btn-group button:first-child{
+.banner-btn-group button:first-child, .services-view-all-btn{
     background-color: var(--pink);
     color: var(--white);
     border: 1px solid var(--pink);
+    display: inline;
 }
 
 .banner-btn-group button:first-child:hover{
@@ -51,4 +52,9 @@
     background-color: var(--pink);
     color: var(--white);
     border-color: var(--pink);
+}
+
+.services-view-all-btn{
+    margin: 0 auto;
+    text-align: center;
 }

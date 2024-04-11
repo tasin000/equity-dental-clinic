@@ -41,3 +41,20 @@
   font-size: 35px;
   font-weight: 600;
 }
+
+.section-heading {
+  width: fit-content;
+  margin: 70px auto 0;
+}
+
+.section-heading {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Josefin Sans", serif;
+  color: var(--blue);
+  border-bottom: 3px solid var(--blue);
+}
+
+.my-large{
+  margin: 180px 0;
+}
