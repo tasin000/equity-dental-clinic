@@ -1,13 +1,14 @@
 import React from 'react';
 import "./HomeLayout.css";
 import Header from '../../../shared/Header/Header';
-import homeBannerImg from "../../../../assets/images/home/home_banner.png";
+import homeBannerImg from "../../../../assets/images/Home/home_banner.png";
 import Banner from "../../../shared/Banner/Banner";
 import ServiceCards from "../../../pages/Services/ServiceCards/ServiceCards";
 import useFetch from "../../../../hooks/useFetch";
 import useShuffle from "../../../../hooks/useShuffle";
 import { useNavigate } from "react-router-dom";
 import Testimonials from '../Testimonials/Testimonials';
+import Footer from '../../../shared/Footer/Footer';
 
 
 const HomeLayout = () => {
@@ -27,10 +28,10 @@ const HomeLayout = () => {
                 <Header></Header>
                 <Banner contents={homeBanner}>
                     <div className="banner-btn-group">
-                        <button className="main-btn">
+                        <button onClick={() => navigate("/services")} className="main-btn">
                             Appointment
                         </button>
-                        <button className="main-btn" style={{ marginLeft: "20px" }}>
+                        <button onClick={() => navigate("/about")} className="main-btn" style={{ marginLeft: "20px" }}>
                             Learn More
                         </button>
                     </div>
@@ -52,6 +53,8 @@ const HomeLayout = () => {
             </div>
 
             <Testimonials></Testimonials>
+
+            <Footer></Footer>
         </div>
     );
 };

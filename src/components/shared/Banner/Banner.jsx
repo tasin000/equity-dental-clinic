@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Banner.css";
-import homeBannerImg from "./../../../assets/images/home/home_banner.png";
+import homeBannerImg from "./../../../assets/images/Home/home_banner.png";
 import otherBannerImg from "../../../assets/images/banner_img.png";
 import { useLocation } from "react-router-dom";
 

@@ -4,8 +4,9 @@ import Header from '../../../shared/Header/Header';
 import useShuffle from '../../../../hooks/useShuffle';
 import useFetch from "../../../../hooks/useFetch";
 import ServiceCards from '../ServiceCards/ServiceCards';
-import Loading from '../../../shared/Loading/Loading';
-import Error from '../../../shared/Error/Error';
+import Footer from '../../../shared/Footer/Footer';
+import { faUserDoctor } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ServicesLayout = () => {
     const [treatments, loading, error] = useFetch("treatments.json");
@@ -14,16 +15,19 @@ const ServicesLayout = () => {
 
     return (
         <div className='services-container'>
-            <div className='header-container'><Header></Header></div>
+            <Header></Header>
 
             <div className="container">
                 <div className="services-container">
                     <div className='page-heading'>
                         <p>Treatments Provided by Us</p>
+                        <FontAwesomeIcon icon={faUserDoctor} />
                     </div>
                     <ServiceCards treatmentsState={[treatments, loading, error]}></ServiceCards>
                 </div>
             </div>
+
+            <Footer></Footer>
         </div>
     );
 };

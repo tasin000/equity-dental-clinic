@@ -4,6 +4,7 @@
     margin: 25px 0;
     border: 1px solid var(--gray);
     transition: 0.2s linear;
+    font-family: "Roboto Slab", sans-serif;
 }
 
 .testimonial-patient{
@@ -14,8 +15,22 @@
 
 .testimonial-patient p{
     color: var(--pink);
-    font-family: "Josefin Sans", serif;
     font-size: 30px;
+}
+
+.testimonial-rating{
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-rating svg{
+    margin-left: 10px;
+    height: 35px;
+    color: #ffa500;
+}
+
+.testimonial-rating img{
+    height: 30px;
 }
 
 .testimonial-patient span{
@@ -27,6 +42,5 @@
 .testimonial-review{
     font-size: 18px;
     line-height: 32px;
-    font-family: "Roboto Slab", sans-serif;
     margin: 20px 0;
 }

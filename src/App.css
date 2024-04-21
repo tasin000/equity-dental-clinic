@@ -9,9 +9,15 @@
   width: 50%;
 }
 
+.vr-line{
+  width: 15px;
+  border-right: 1px dotted var(--black);
+  height: fit-content;
+}
+
 .banner {
   background-color: var(--blue);
-  padding: 40px 25px 20px;
+  padding: .5px 25px 20px;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -26,12 +32,11 @@
   cursor: pointer;
 }
 
-.header-container {
-  margin: 50px 0;
-}
-
 .page-heading {
+  display: flex;
+  align-items: center;
   margin: 0 auto;
+  font-family: "Josefin Sans", sans-serif;
   text-align: center;
   background-color: var(--blue);
   color: var(--white);
@@ -40,6 +45,11 @@
   border-radius: 10px;
   font-size: 35px;
   font-weight: 600;
+}
+
+.page-heading svg{
+  margin-left: 20px;
+  font-size: 40px;
 }
 
 .section-heading {
@@ -53,6 +63,10 @@
   font-family: "Josefin Sans", serif;
   color: var(--blue);
   border-bottom: 3px solid var(--blue);
+}
+
+.section-heading h3 i{
+  margin-left: 10px;
 }
 
 .my-large{
@@ -72,4 +86,8 @@
 
 .services-view-all-btn{
   margin: 20px auto;
+}
+
+.blog-cards-container, .service-cards, .contact-info-container{
+  margin: 75px 5px;
 }

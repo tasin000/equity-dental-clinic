@@ -1,0 +1,17 @@
+.blog-card{
+    border: 1px solid var(--gray);
+    border-radius: 3px;
+    padding: 15px;
+    font-family: "Roboto Slab", serif;
+}
+
+.blog-title{
+    font-size: 30px;
+    color: var(--pink);
+    margin: 10px 0 20px;
+}
+
+.blog-desc {
+    font-size: 18px;
+    line-height: 30px;
+}

@@ -1,20 +1,23 @@
 import React from 'react';
+import "./Blogs.css";
 import Header from '../../../shared/Header/Header';
 import Footer from '../../../shared/Footer/Footer';
+import BlogCards from '../BlogCards/BlogCards';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
-const Login = () => {
-    
+const Blogs = () => {
+
     return (
         <div>
             <Header></Header>
-
-            <div className="auth-form-container">
+            <div className="blogs-container">
                 <div className="page-heading">
-                    <p>Login</p>
-                    <FontAwesomeIcon icon={faRightToBracket} />
+                    <p>Discover Blogs</p>
+                    <FontAwesomeIcon icon={faNewspaper} />
                 </div>
+
+                <BlogCards></BlogCards>
             </div>
 
             <Footer></Footer>
@@ -22,4 +25,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Blogs;

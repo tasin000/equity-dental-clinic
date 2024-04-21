@@ -4,11 +4,12 @@
     align-items: center;
     justify-content: space-between;
     color: var(--white);
-    margin: 100px 0 50px;
+    margin: 0 0 50px;
 }
 
 .banner-contents h2{
     font-size: 35px;
+    margin-top: 25px;
 }
 
 .banner-contents h1{

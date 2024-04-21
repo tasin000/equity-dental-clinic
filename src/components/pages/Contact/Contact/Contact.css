@@ -1,0 +1,20 @@
+.contact-options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-options .social-links-container{
+    font-family: "Roboto slab", serif;
+    margin: 30px 0;
+}
+
+.contact-options .social-link{
+    font-size: 25px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.contact-options .social-link span{
+    border-bottom: 2px dashed var(--pink);
+    color: var(--pink);
+}

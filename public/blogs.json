@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "title": "Differences between Authentication and Authorization",
+        "desc": [
+            "The process of verifying a user with the information he claims to be refers to Authentication. On the other hand, Authorization refers to what the user has access to. ",
+            "Authentication transmits info through Id Token whereas Authorization transmits info through OAuth 2.0 framework. ",
+            "For example: When you get a knock at door, you ask who that is. When he says his name and he is someone you know, you open the door for the person. This refers to Authentication. Similarly, if he says that one of your friends have sent him, then you call your friend and if your friend gives reply in affirmative, then you will open the door for him. This refers to Authorization. "
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Why are you using firebase? What other options do you have to implement authentication?",
+        "desc": ["Firebase provides a secure and easy way for users to sign into their app. Developers can use Firebase Authentication to support email and password login, Google Sign-In, Facebook Login and more. Moreover, firebase has a detailed documentation of different services they provide.", "There are various alternatives of firebase like Heroku, MongoDB, Supabase, AuthO, Kuzzle and many more"]
+    },
+    {
+        "id": 3,
+        "title": "What other services does firebase provide other than authentication?",
+        "desc": ["Other than Authentication, firebase provides with many other services: ", "1. Real-time Database, 2. Cloud Functions, 3. Hosting, 4. Firebase Cloud Storage, 5. Google Analytics, 6. Cloud Messaging"]
+    }
+]
