@@ -21,7 +21,9 @@ const Contact = () => {
                             <div className="section-heading">
                                 <h3>
                                     Follow Us
-                                    <FontAwesomeIcon icon={faUserPlus} />
+                                    <span>
+                                        <FontAwesomeIcon icon={faUserPlus} />
+                                    </span>
                                 </h3>
                             </div>
 
@@ -32,26 +34,27 @@ const Contact = () => {
                                 </div>
 
                                 <div>
-                                <div className="social-link">
-                                    <FontAwesomeIcon icon={faInstagram} style={{ color: "#ff00d4", }} />/equitydentalclinic
+                                    <div className="social-link">
+                                        <FontAwesomeIcon icon={faInstagram} style={{ color: "#ff00d4", }} />/equitydentalclinic
 
-                                </div>
+                                    </div>
 
-                                <div className="social-link">
-                                    <FontAwesomeIcon icon={faXTwitter} style={{ color: "#000000", }} />/equitydentalclinic
+                                    <div className="social-link">
+                                        <FontAwesomeIcon icon={faXTwitter} style={{ color: "#000000", }} />/equitydentalclinic
 
-                                </div>
+                                    </div>
 
-                                <div className="social-link">
-                                    <FontAwesomeIcon icon={faYoutube} style={{ color: "#ff0000", }} />/@equitydentalclinic
+                                    <div className="social-link">
+                                        <FontAwesomeIcon icon={faYoutube} style={{ color: "#ff0000", }} />/@equitydentalclinic
 
+                                    </div>
                                 </div>
                             </div>
-                                </div>
                         </div>
                         <div className="w-50">
                             <div className="section-heading">
-                                <h3>Find Us <FontAwesomeIcon icon={faMagnifyingGlass} /></h3>
+                                <h3>Find Us <span>
+                                    <FontAwesomeIcon icon={faMagnifyingGlass} /></span></h3>
 
                             </div>
 

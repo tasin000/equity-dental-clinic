@@ -1,0 +1,88 @@
+.auth-form {
+  border: 3px solid var(--pink);
+  border-radius: 15px;
+  margin: 50px auto;
+  width: 50%;
+}
+
+.auth-form form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto slab", sans-serif;
+}
+
+.auth-form .form-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.auth-form .form-group label {
+  font-size: 20px;
+  margin: 7px 0;
+  color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-form .form-group input {
+  width: 100%;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Roboto slab", sans-serif;
+}
+
+.auth-form .form-group input:not([type="submit"]) {
+  border: 2px solid var(--pink);
+}
+
+.auth-form .form-group input:is([type="submit"]) {
+  width: 100%;
+  padding: 10px 25px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 25px;
+  border: 2px solid var(--pink);
+  font-family: "Josefin Sans", serif;
+  transition: 0.2s linear;
+  background-color: var(--pink);
+  color: var(--white);
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+.auth-form .form-group input:is([type="submit"]):hover {
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.auth-form .form-group input::placeholder {
+  font-family: "Roboto slab", sans-serif;
+}
+
+.auth-form form p a {
+    font-size: 18px;
+  color: var(--blue);
+}
+
+.auth-form form span{
+    text-align: center;
+    color: var(--blue);
+}
+
+.auth-form form span a{
+    color: var(--pink);
+}
+
+.user-quota-container{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}

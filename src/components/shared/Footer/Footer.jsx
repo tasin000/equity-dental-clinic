@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="container">
             <div className='footer-container'>
                 <div className="footer-links">
-                    {footerLinks.map(link => <Link to={link?.to}>{link?.name}</Link>)}
+                    {footerLinks.map(link => <Link key={link.id} to={link?.to}>{link?.name}</Link>)}
                 </div>
 
                 <div>

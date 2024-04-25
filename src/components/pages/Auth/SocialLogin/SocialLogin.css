@@ -1,0 +1,31 @@
+.social-login-container .or-div{
+    margin: 15px auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-family: "Roboto slab", sans-serif;
+}
+
+.social-login-container .or-div div{
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+}
+
+.social-login-container .or-div span{
+    margin: 0 10px 5px;
+    font-size: 35px;
+    color: var(--blue);
+}
+
+.social-login-options{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.social-login-options img{
+    height: 45px;
+    cursor: pointer;
+}
