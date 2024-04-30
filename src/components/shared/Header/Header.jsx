@@ -35,7 +35,7 @@ const Header = () => {
 
                 <div className="nav-links">
                     {navLinks.map(link => <NavLink key={link.id} to={link.to} className={({ isActive }) => isActive ? "active-nav-link" : ""}>{link.name}</NavLink>)}
-                    {!loggedInUser ? <NavLink to="/login" className={({ isActive }) => isActive ? "active-nav-link" : ""}>Login</NavLink> : <Link title={loggedInUser?.email} className='main-btn' onClick={() => signOut(auth)}>Log Out</Link>}
+                    {!loggedInUser ? <NavLink to="/login" className={({ isActive }) => isActive ? "active-nav-link" : ""}>Login</NavLink> : <Link title={loggedInUser?.email} onClick={() => signOut(auth)}>Log Out</Link>}
                 </div>
             </div>
         </div>

@@ -7,15 +7,25 @@ import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
-    const [loginUser, loginLoading, loginError] = useSignInWithEmailAndPassword();
+    const [userLogInWithEmailAndPassword, loginUser, loginLoading, loginError] = useSignInWithEmailAndPassword();
     const emailRef = useRef("");
     const passwordRef = useRef("");
 
+    const email = emailRef.current.valueOf;
+    const password = passwordRef.current.valueOf;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const emailTest = emailRegex.test(email);
+
     const handleLogin = e => {
         e.preventDefault();
+        if (!emailTest) { toast.error("Email is invalid"); return; }
 
+        userLogInWithEmailAndPassword(email, password);
     }
 
     return (
@@ -23,6 +33,7 @@ const Login = () => {
             <Header></Header>
 
             <div className="container">
+                <ToastContainer />
                 <div className="auth-form-container">
                     <div className="page-heading">
                         <p>Login</p>

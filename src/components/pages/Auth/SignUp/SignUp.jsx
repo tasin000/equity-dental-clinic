@@ -5,22 +5,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, Navigate } from 'react-router-dom';
 import error from "../../../../assets/images/icons/error.png";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase/firebase.init';
 import Loading from '../../../shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import { sendEmailVerification } from 'firebase/auth';
 
 const SignUp = () => {
-    const [createUser, signUpUser, signUpLoading, signUpError] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
-    const nameRegex = /^[a-z ,.'-]+$/i;
+    const [createUser, signUpUser, signUpLoading, signUpError] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updateUpdating, updateError] = useUpdateProfile(auth);
+    const nameRegex = /[a-zA-Z]/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/;
+    const passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{6,}$/;
 
-    let nameError, emailError, passwordError, confirmPasswordError;
-    
-    const [signUpInfo, setSignUpInfo] = useState({name: "", email: "", password: "", confirmPassword: ""});
-    const {name, email, password, confirmPassword} = signUpInfo;
+    // Regex error
 
     
+    const [signUpInfo, setSignUpInfo] = useState({ name: "", email: "", password: "", confirmPassword: "" });
+    const { name, email, password, confirmPassword } = signUpInfo;
+    
+    const nameTest = nameRegex.test(name);
+    const emailTest = emailRegex.test(email);
+    const passwordTest = passwordRegex.test(password);
+    const confirmPasswordTest = password === confirmPassword;
+    
+
     const handleSignUpDetail = (event) => {
         setSignUpInfo((old) => {
             const name = event.target.name;
@@ -29,25 +38,49 @@ const SignUp = () => {
             console.log(previous);
             return (previous);
         })
+        
     }
-    
-    const handleSignUp = e => {
+
+    const handleSignUp = async e => {
+        console.log(name, email, password, confirmPassword);
         e.preventDefault();
-        nameError = nameRegex.test(name);
-        emailError = emailRegex.test(email);
-        passwordError = passwordRegex.test(password);
-        confirmPasswordError = password === confirmPassword;
-console.log(nameError, emailError, passwordError, confirmPasswordError);
-        if(!nameError && !emailError && !passwordError && !confirmPasswordError){
-            createUser(email, password);
+
+        if(!nameTest){
+            toast.error("Name is not valid");
+            console.log("Namerror")
+            return;
+        }
+
+        if(!emailTest){
+            toast.error("Email is not valid");
+            console.log("Emailrorr");
+            return;
+        }
+
+        if(!passwordTest){
+            toast.error("Password should contain at least: 6 characters, 1 lowercase letter and 1 number");
+            console.log("Passwordrror");
+            return;
+        }
+
+        if(!confirmPasswordTest){
+            toast.error("Passwords do not match");
+            return;
+        }
+        
+        await createUser(email, password)
+        await updateProfile({ displayName: name })
+        const success = await sendEmailVerification();
+        if (success) {
+            toast.info("Verification email sent!");
         }
     }
 
-    if(signUpUser){
+    if (signUpUser) {
         return <Navigate to="/" replace />;
     }
 
-    if(signUpLoading){
+    if (signUpLoading) {
         return <Loading />;
     }
 
@@ -56,19 +89,20 @@ console.log(nameError, emailError, passwordError, confirmPasswordError);
             <Header></Header>
 
             <div className="container">
+            <ToastContainer></ToastContainer>
                 <div className="auth-form-container">
                     <div className="page-heading">
-                    <p>Sign Up</p>
-                    <FontAwesomeIcon icon={faUser} />
+                        <p>Sign Up</p>
+                        <FontAwesomeIcon icon={faUser} />
                     </div>
 
                     <div className="auth-form">
                         <form onSubmit={handleSignUp}>
-                        <div className="form-group">
+                            <div className="form-group">
                                 <label htmlFor="name">Name</label>
-                                <input onBlur={handleSignUpDetail}  placeholder='Your name' type="text" name="name" id="name" />
+                                <input onBlur={handleSignUpDetail} placeholder='Your name' type="text" name="name" id="name" />
                                 <div className="input-error-container">
-                                    {nameError && <small><img src={error} alt="..." />{nameError}</small>}
+                                    {/* {nameError && <small><img src={error} alt="..." />Please enter a valid name</small>} */}
                                 </div>
                             </div>
 
@@ -76,7 +110,7 @@ console.log(nameError, emailError, passwordError, confirmPasswordError);
                                 <label htmlFor="email">Email</label>
                                 <input onBlur={handleSignUpDetail} placeholder='Type your email' type="text" name="email" id="email" />
                                 <div className="input-error-container">
-                                {emailError && <small><img src={error} alt="..." />{emailError}</small>}
+                                    {/* {emailError && <small><img src={error} alt="..." />Please enter a valid email</small>} */}
                                 </div>
                             </div>
 
@@ -84,7 +118,7 @@ console.log(nameError, emailError, passwordError, confirmPasswordError);
                                 <label htmlFor="password">Password</label>
                                 <input onBlur={handleSignUpDetail} placeholder="Enter password" type="password" name="password" id="password" />
                                 <div className="input-error-container">
-                                {passwordError && <small><img src={error} alt="..." />{passwordError}</small>}
+                                    {/* {passwordError && <small><img src={error} alt="..." />Password should contain at least: <ul><li>6 characters</li><li>1 letter</li><li>1 number</li></ul></small>} */}
                                 </div>
                             </div>
 
@@ -92,7 +126,7 @@ console.log(nameError, emailError, passwordError, confirmPasswordError);
                                 <label htmlFor="password">Confirm Password</label>
                                 <input onBlur={handleSignUpDetail} placeholder="Re-enter password" type="password" name="confirmPassword" id="confirmPassword" />
                                 <div className="input-error-container">
-                                {confirmPasswordError && <small><img src={error} alt="..." />{confirmPasswordError}</small>}
+                                    {/* {confirmPasswordError && <small><img src={error} alt="..." />Passwords do not match</small>} */}
                                 </div>
                             </div>
 

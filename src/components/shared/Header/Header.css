@@ -36,3 +36,10 @@ a.active-nav-link{
     border-bottom: 3px solid var(--pink);
     color: var(--pink);
 }
+
+.log-out-btn{
+    border: 2px solid var(--pink);
+    border-radius: 3px;
+    background-color: var(--pink);
+    
+}

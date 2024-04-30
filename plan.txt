@@ -14,26 +14,26 @@
 
 - Checkout:
 -> checkout page will be protected ✅
--> if: logged in will redirect to checkout page, else: login page. after login, redirect to previous page
+-> if: logged in will redirect to checkout page, else: login page. after login, redirect to previous page ✅
 -> make sure, the user stays in protected route after login even if the page is reloaded ✅
-- react hook form
+- react hook form ❌
 
 // optionals
 -> checkout page will be dynamic ✅
--> checkout page will have a form for checkout details 
+-> checkout page will have a form for checkout details ❌
 -> after filling the form, user will be redirected to thank you page 
 
 
 
 
 # login:
--> email-pass auth and validation
--> login and sign up toggler
--> social login
+-> email-pass auth and validation ✅
+-> login and sign up toggler ✅
+-> social login ✅
 -> log out btn in header ✅
-# user verification email 
-# forgot password
--> multiple account with same email 
+# user verification email ✅
+# forgot password ✅
+-> multiple account with same email ✅
 
 # blogs:
 -> Difference between authorization and authentication, ✅
@@ -46,7 +46,7 @@ What other services does firebase provide other than authentication ✅
 
 bonus:
 # 404 page ✅
-# minimum 9 github commits
+# minimum 9 github commits ✅
 # no lorem ipsum ✅
 
 # Readme.md
@@ -55,15 +55,15 @@ bonus:
 -> list of technologies
 
 # laptop and mobile responsive
-# add comments in code 
-# environment variables
+# add comments in code ❌
+# environment variables ✅
 # active routes ✅
 
 
 
 
 # Optionals:
-- react leaflet
+- react leaflet ❌
 - use icons and fonts ✅
 - add more contents in footer ✅
 - multiple account with same email ✅
