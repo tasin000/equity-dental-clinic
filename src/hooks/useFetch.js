@@ -10,9 +10,9 @@ const useFetch = (url) => {
     .then(data => setArray(data))
     .catch(err => setError(err))
     .finally(() => setLoading(false));
-    }, [url])
-    
-    console.log(array)
+    }, [url]);
+
+    if(error) console.log(error);
 
     return [array, loading, error];
 }

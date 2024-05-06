@@ -67,3 +67,5 @@ bonus:
 - use icons and fonts ✅
 - add more contents in footer ✅
 - multiple account with same email ✅
+
+error: social login loading, navbar toggler

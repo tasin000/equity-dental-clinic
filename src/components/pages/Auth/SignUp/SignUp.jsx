@@ -2,86 +2,100 @@ import React, { useState } from 'react';
 import Header from '../../../shared/Header/Header';
 import Footer from '../../../shared/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link, Navigate } from 'react-router-dom';
-import error from "../../../../assets/images/icons/error.png";
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase/firebase.init';
 import Loading from '../../../shared/Loading/Loading';
-import { ToastContainer, toast } from 'react-toastify';
-import { sendEmailVerification } from 'firebase/auth';
+import errorImg from "../../../../assets/images/icons/error.png";
+import VerificationSent from '../../../shared/VerificationSent/VerificationSent';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const SignUp = () => {
-    const [createUser, signUpUser, signUpLoading, signUpError] = useCreateUserWithEmailAndPassword(auth);
-    const [updateProfile, updateUpdating, updateError] = useUpdateProfile(auth);
-    const nameRegex = /[a-zA-Z]/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{6,}$/;
+    const nameRegex = /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/;
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const passwordRegex = /^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
 
-    // Regex error
+    const [
+        createUserWithEmailAndPassword,
+        signUpUser,
+        signUpLoading,
+        signUpError,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, verificationSending, verificationError] = useSendEmailVerification(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
-    
-    const [signUpInfo, setSignUpInfo] = useState({ name: "", email: "", password: "", confirmPassword: "" });
-    const { name, email, password, confirmPassword } = signUpInfo;
-    
-    const nameTest = nameRegex.test(name);
-    const emailTest = emailRegex.test(email);
-    const passwordTest = passwordRegex.test(password);
-    const confirmPasswordTest = password === confirmPassword;
-    
+    const [userInfo, setUserInfo] = useState({
+        name: { "value": "", "error": "" },
+        email: { "value": "", "error": "" },
+        password: { "value": "", "error": "" },
+        confirmPassword: { "value": "", "error": "" },
+    });
+    const [emailSent, setEmailSent] = useState(false);
 
-    const handleSignUpDetail = (event) => {
-        setSignUpInfo((old) => {
-            const name = event.target.name;
-            const previous = old;
-            previous[name] = event.target.value;
-            console.log(previous);
-            return (previous);
+    const { name, email, password, confirmPassword } = userInfo;
+
+    let nameError = userInfo.name.error;
+    let emailError = userInfo.email.error;
+    let passwordError = userInfo.password.error;
+    let confirmPasswordError = userInfo.confirmPassword.error;
+
+    const handleInputBlur = e => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
+
+        setUserInfo(old => {
+            old[inputName]["value"] = inputValue;
+            return old;
         })
-        
     }
 
     const handleSignUp = async e => {
-        console.log(name, email, password, confirmPassword);
+        const emailValue = email.value;
+        const passwordValue = password.value;
         e.preventDefault();
 
-        if(!nameTest){
-            toast.error("Name is not valid");
-            console.log("Namerror")
+        if (!nameRegex.test(name.value)) {
+            toast.error("Please enter your full name!");
             return;
         }
 
-        if(!emailTest){
-            toast.error("Email is not valid");
-            console.log("Emailrorr");
+        if (!emailRegex.test(email.value)) {
+            toast.error("Email is not valid!");
             return;
         }
 
-        if(!passwordTest){
-            toast.error("Password should contain at least: 6 characters, 1 lowercase letter and 1 number");
-            console.log("Passwordrror");
+        if (!passwordRegex.test(password.value)) {
+            toast.error("Password should contain at least six characters, one letter and one digit!");
+            console.log(password.value);
             return;
         }
 
-        if(!confirmPasswordTest){
-            toast.error("Passwords do not match");
+        if (password.value !== confirmPassword.value) {
+            toast.error("Passwords do not match!");
             return;
         }
-        
-        await createUser(email, password)
-        await updateProfile({ displayName: name })
-        const success = await sendEmailVerification();
-        if (success) {
-            toast.info("Verification email sent!");
-        }
-    }
 
-    if (signUpUser) {
-        return <Navigate to="/" replace />;
+        await createUserWithEmailAndPassword(emailValue, passwordValue);
+        await updateProfile({ displayName: userInfo.name });
+        const emailStat = await sendEmailVerification();
+        if (emailStat) setEmailSent(true);
     }
 
     if (signUpLoading) {
-        return <Loading />;
+        return <Loading />
+    }
+
+    if (signUpError) {
+        console.error(signUpError);
+    }
+
+    if(verificationSending){
+        return <h2 style={{fontFamily: "Roboto slab"}}>Sending verification email...</h2>
+    }
+
+    if (emailSent) {
+        return <VerificationSent />
     }
 
     return (
@@ -89,45 +103,48 @@ const SignUp = () => {
             <Header></Header>
 
             <div className="container">
-            <ToastContainer></ToastContainer>
                 <div className="auth-form-container">
                     <div className="page-heading">
                         <p>Sign Up</p>
                         <FontAwesomeIcon icon={faUser} />
                     </div>
-
+                    <div style={{ fontFamily: "'Roboto slab', 'sans-serif'" }}><Toaster /></div>
                     <div className="auth-form">
                         <form onSubmit={handleSignUp}>
                             <div className="form-group">
-                                <label htmlFor="name">Name</label>
-                                <input onBlur={handleSignUpDetail} placeholder='Your name' type="text" name="name" id="name" />
-                                <div className="input-error-container">
-                                    {/* {nameError && <small><img src={error} alt="..." />Please enter a valid name</small>} */}
-                                </div>
+                                <label htmlFor="name">Your Full Name</label>
+                                <input placeholder='e.g. Mohammad Ali' type="text" name="name" id="name" onBlur={handleInputBlur} />
+                                {nameError && <div className="input-error-container">
+                                    <img src={errorImg} alt="..." />
+                                    <p>{nameError}</p>
+                                </div>}
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
-                                <input onBlur={handleSignUpDetail} placeholder='Type your email' type="text" name="email" id="email" />
-                                <div className="input-error-container">
-                                    {/* {emailError && <small><img src={error} alt="..." />Please enter a valid email</small>} */}
-                                </div>
+                                <input placeholder='e.g. ali@gmail.com' type="text" name="email" id="email" onBlur={handleInputBlur} />
+                                {emailError && <div className="input-error-container">
+                                    <img src={errorImg} alt="..." />
+                                    <p>{emailError}</p>
+                                </div>}
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
-                                <input onBlur={handleSignUpDetail} placeholder="Enter password" type="password" name="password" id="password" />
-                                <div className="input-error-container">
-                                    {/* {passwordError && <small><img src={error} alt="..." />Password should contain at least: <ul><li>6 characters</li><li>1 letter</li><li>1 number</li></ul></small>} */}
-                                </div>
+                                <input placeholder="e.g. pG7hx8JuYE" type="password" name="password" id="password" onBlur={handleInputBlur} />
+                                {passwordError && <div className="input-error-container">
+                                    <img src={errorImg} alt="..." />
+                                    <p>{passwordError}</p>
+                                </div>}
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="password">Confirm Password</label>
-                                <input onBlur={handleSignUpDetail} placeholder="Re-enter password" type="password" name="confirmPassword" id="confirmPassword" />
-                                <div className="input-error-container">
-                                    {/* {confirmPasswordError && <small><img src={error} alt="..." />Passwords do not match</small>} */}
-                                </div>
+                                <input placeholder="Re-enter password" type="password" name="confirmPassword" id="confirmPassword" onBlur={handleInputBlur} />
+                                {confirmPasswordError && <div className="input-error-container">
+                                    <img src={errorImg} alt="..." />
+                                    <p>{confirmPasswordError}</p>
+                                </div>}
                             </div>
 
                             <div className="form-group">

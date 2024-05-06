@@ -5,7 +5,7 @@ import useFetch from '../../../../hooks/useFetch';
 import Loading from '../../../shared/Loading/Loading';
 
 const BlogCards = () => {
-    const [blogs, blogsLoading] = useFetch("blogs.json");
+    const [blogs, blogsLoading, error] = useFetch("blogs.json");
 
     if(blogsLoading) return <Loading></Loading>;
 

@@ -2,7 +2,7 @@
   border: 3px solid var(--pink);
   border-radius: 15px;
   margin: 50px auto;
-  width: 50%;
+  width: 55%;
 }
 
 .auth-form form {
@@ -68,35 +68,49 @@
 }
 
 .auth-form form p a {
-    font-size: 18px;
+  font-size: 18px;
   color: var(--blue);
 }
 
-.auth-form form span{
-    text-align: center;
-    color: var(--blue);
+.auth-form form span {
+  text-align: center;
+  color: var(--blue);
 }
 
-.auth-form form span a{
-    color: var(--pink);
+.auth-form form span a {
+  color: var(--pink);
 }
 
-.user-quota-container{
-    display: flex;
-    justify-content: space-between;
+.user-quota-container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.input-error-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.input-error-container img {
+  height: 18px;
+}
+
+.input-error-container p {
+  font-size: 18px;
+  margin-left: 5px;
+  color: #ff0000;
+}
+
+@media screen and (max-width: 992px){
+  .auth-form{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .auth-form{
     width: 95%;
-}
-
-.input-error-container{
-    margin-top: 5px;
-}
-
-.input-error-container p{
-    color: #ff0000;
-    font-size: 18px;
-}
-
-.input-error-container p img{
-    height: 18px;
-    width: 18px;
+  }
 }

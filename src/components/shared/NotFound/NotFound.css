@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 10px;
     font-family: "Roboto Slab", serif;
 }
 
@@ -12,6 +13,7 @@
 
 .not-found-container p{
     font-size: 30px;
+    text-align: center;
     color: var(--blue);
 }
 
@@ -30,4 +32,18 @@
 
 .not-found-container a:hover{
     text-decoration: underline;
+}
+
+.not-found-container img.email-sent-container{
+    width: 30%;
+}
+
+@media screen and (max-width: 992px){
+    .not-found-container img{
+        width: 90%;
+    }
+
+    .not-found-container img.email-sent-container{
+        width: 60%;
+    }
 }

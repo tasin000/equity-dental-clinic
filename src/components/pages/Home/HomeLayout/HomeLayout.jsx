@@ -28,10 +28,10 @@ const HomeLayout = () => {
                 <Header></Header>
                 <Banner contents={homeBanner}>
                     <div className="banner-btn-group">
-                        <button onClick={() => navigate("/services")} className="main-btn">
+                        <button onClick={() => navigate("/services")} className="main-btn" style={{marginRight: "20px"}}>
                             Appointment
                         </button>
-                        <button onClick={() => navigate("/about")} className="main-btn" style={{ marginLeft: "20px" }}>
+                        <button onClick={() => navigate("/about")} className="main-btn">
                             Learn More
                         </button>
                     </div>

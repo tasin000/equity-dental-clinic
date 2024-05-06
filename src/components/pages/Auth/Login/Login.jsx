@@ -4,28 +4,51 @@ import Header from '../../../shared/Header/Header';
 import Footer from '../../../shared/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase/firebase.init';
+import toast, { Toaster } from 'react-hot-toast';
+import Loading from '../../../shared/Loading/Loading';
 
 const Login = () => {
-    const [userLogInWithEmailAndPassword, loginUser, loginLoading, loginError] = useSignInWithEmailAndPassword();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname;
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, resetSending, resetError] = useSendPasswordResetEmail(
+        auth
+    );
     const emailRef = useRef("");
     const passwordRef = useRef("");
-
-    const email = emailRef.current.valueOf;
-    const password = passwordRef.current.valueOf;
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const emailTest = emailRegex.test(email);
-
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
     const handleLogin = e => {
         e.preventDefault();
-        if (!emailTest) { toast.error("Email is invalid"); return; }
 
-        userLogInWithEmailAndPassword(email, password);
+        if (!emailRegex.test(email)) {
+            toast.error("Email is not valid!");
+            return;
+        }
+
+        signInWithEmailAndPassword(email, password);
+    }
+
+    if(loading){
+        return <Loading />
+    }
+
+    if (error) {
+        console.error(error);
+    }
+
+    if (user) {
+        return <Navigate to={from} replace />
     }
 
     return (
@@ -33,7 +56,7 @@ const Login = () => {
             <Header></Header>
 
             <div className="container">
-                <ToastContainer />
+                <div style={{fontFamily: "Roboto slab"}}><Toaster /></div>
                 <div className="auth-form-container">
                     <div className="page-heading">
                         <p>Login</p>
@@ -62,7 +85,9 @@ const Login = () => {
                                 </div>
 
                                 <div>
-                                    <p><Link>Forgot Password</Link></p>
+                                    <p><Link onClick={async () => { if(!emailRegex.test(email)){toast('Please enter valid email to send reset link!', {
+  icon: '⚠️',
+}); return;}; const resetEmail = await sendPasswordResetEmail(email); if (resetEmail) { toast.success("Password reset email sent!") } }}>Forgot Password</Link></p>
                                 </div>
                             </div>
                         </form>
