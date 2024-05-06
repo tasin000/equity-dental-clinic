@@ -1,0 +1,7 @@
+.banner .banner-contents {
+  background-color: var(--blue);
+  padding: 30px 25px;
+  font-family: "Josefin Sans", sans-serif;
+  border-radius: 10px;
+  margin: 0 10px;
+}

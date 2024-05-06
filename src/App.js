@@ -7,7 +7,7 @@ import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact/Contact";
 import Login from "./components/pages/Auth/Login/Login";
 import SignUp from "./components/pages/Auth/SignUp/SignUp";
-import Appointment from './components/pages/Appointment/Appointment';
+import Appointment from './components/pages/Appointment/Appointment/Appointment';
 import RequireAuth from './components/pages/Auth/RequireAuth/RequireAuth';
 import NotFound from './components/shared/NotFound/NotFound';
 

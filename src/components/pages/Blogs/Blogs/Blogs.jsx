@@ -5,9 +5,11 @@ import Footer from '../../../shared/Footer/Footer';
 import BlogCards from '../BlogCards/BlogCards';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useFetch from '../../../../hooks/useFetch';
 
 const Blogs = () => {
-
+    const [treatments, loading] = useFetch("treatments.json");
+    console.log(treatments);
     return (
         <div>
             <Header></Header>

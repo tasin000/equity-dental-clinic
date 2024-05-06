@@ -28,6 +28,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .banner-btn-group button:first-child:hover{
@@ -40,10 +41,21 @@
     background-color: transparent;
     color: var(--white);
     border: 1px solid var(--white);
+    margin: 10px 0;
 }
 
 .banner-btn-group button:last-child:hover{
     background-color: var(--pink);
     color: var(--white);
     border-color: var(--pink);
+}
+
+@media screen and (max-width: 1000px){
+    .banner-contents{
+        flex-direction: column-reverse;
+    }
+
+    .banner-contents div:first-child{
+        margin-top: 30px;
+    }
 }

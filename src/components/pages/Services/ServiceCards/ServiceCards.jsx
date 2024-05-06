@@ -10,6 +10,9 @@ const ServiceCards = ({treatmentsState}) => {
         return <Loading></Loading>;
     }
 
+    const treatment = treatments.find(x => x.id === 1);
+    console.log(treatment);
+
     return (
         <div className="service-cards">
             {treatments.map(treatment => <Service key={treatment.id} treatment={treatment} />)}

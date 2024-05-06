@@ -6,6 +6,7 @@
   font-family: "Roboto Slab", sans-serif;
   position: relative;
   transition: 0.25s linear;
+  overflow: hidden;
 }
 
 .service-card img {
@@ -47,4 +48,10 @@
   border-bottom: 2px solid var(--pink);
   color: var(--pink);
   font-weight: 700;
+}
+
+@media screen and (max-width: 768px){
+  .service-card{
+    margin: 0 25px;
+  }
 }

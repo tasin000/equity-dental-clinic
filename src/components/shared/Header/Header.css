@@ -5,9 +5,17 @@
     margin: 55px 10px;
     border-radius: 10px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     font-family: "Roboto Slab", serif;
+}
+
+.nav-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 30%;
 }
 
 .nav-logo img{
@@ -19,6 +27,7 @@
     align-items: center;
     justify-content: space-around;
     width: 70%;
+    /* toggle button fix */
 }
 
 .nav-links a{
@@ -41,5 +50,43 @@ a.active-nav-link{
     border: 2px solid var(--pink);
     border-radius: 3px;
     background-color: var(--pink);
-    
+    padding: 5px 10px;
+    color: var(--white);
+}
+
+.log-out-btn:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.toggle-btn{
+    font-size: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .toggle-btn{
+        display: block;
+    }
+
+    .navbar{
+        flex-direction: column;
+    }
+
+    .nav-logo img{
+        height: 80px;
+    }
+
+    .nav-logo, .nav-links{
+        width: 100%;
+    }
+
+    .nav-links{
+        flex-direction: column;
+    }
+
+    .nav-links a{
+        margin: 15px 0;
+    }
 }

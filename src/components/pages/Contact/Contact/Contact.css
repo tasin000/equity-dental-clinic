@@ -18,3 +18,13 @@
     border-bottom: 2px dashed var(--pink);
     color: var(--pink);
 }
+
+.contact-options .w-50{
+    margin: 20px 0;
+}
+
+@media screen and (max-width: 768px){
+    .contact-options{
+        flex-direction: column;
+    }
+}

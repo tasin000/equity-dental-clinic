@@ -3,3 +3,15 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
 }
+
+@media screen and (max-width: 1000px){
+    .service-cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .service-cards{
+        grid-template-columns: 100%;
+    }
+}
