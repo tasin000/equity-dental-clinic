@@ -81,12 +81,12 @@
 }
 
 .services-view-all-btn{
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center;
 }
 
 .blog-cards-container, .service-cards, .contact-info-container{
-  margin: 75px 5px;
+  margin: 70px 5px 40px;
 }
 
 .h-0{
