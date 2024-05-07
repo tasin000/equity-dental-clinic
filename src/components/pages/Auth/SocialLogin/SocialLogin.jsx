@@ -6,7 +6,6 @@ import facebook from "./../../../../assets/images/icons/facebook.png";
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase/firebase.init';
 import errorImg from "../../../../assets/images/icons/error.png";
-import Loading from '../../../shared/Loading/Loading';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const SocialLogin = () => {
@@ -30,7 +29,6 @@ const SocialLogin = () => {
             </div>
 
             <div className="social-login-options">
-<<<<<<< HEAD
                 <img onClick={() => {
                     signInWithGoogle();
                 }} src={google} alt="...." />
@@ -40,17 +38,6 @@ const SocialLogin = () => {
                 <img onClick={() => {
                     signInWithFacebook();
                 }} src={facebook} alt="...." />
-=======
-                {googleLoading ? <Loading /> : <img onClick={() => {
-                    signInWithGoogle();
-                }} src={google} alt="...." />}
-                {githubLoading ? <Loading /> : <img onClick={() => {
-                    signInWithGithub();
-                }} src={github} alt="...." />}
-                {facebookLoading ? <Loading /> : <img onClick={() => {
-                    signInWithFacebook();
-                }} src={facebook} alt="...." />}
->>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
             </div>
 
             {(googleError || githubError || facebookError) && <div className="input-error-container">

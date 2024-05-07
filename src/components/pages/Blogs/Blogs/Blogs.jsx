@@ -6,10 +6,18 @@ import BlogCards from '../BlogCards/BlogCards';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useFetch from '../../../../hooks/useFetch';
+import Loading from '../../../shared/Loading/Loading';
 
 const Blogs = () => {
-    const [treatments, loading] = useFetch("treatments.json");
-    console.log(treatments);
+    const [treatments, loading, error] = useFetch("treatments.json");
+    
+    if(loading){
+        return <Loading />
+    }
+
+    if(error){
+        console.error(error);
+    }
     return (
         <div>
             <Header></Header>
