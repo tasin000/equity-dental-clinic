@@ -113,10 +113,7 @@
   }
 
   .hidden-item{
-<<<<<<< HEAD
     display: none !important;
-=======
     display: none;
->>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
   }
 }
