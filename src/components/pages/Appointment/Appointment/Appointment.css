@@ -1,0 +1,52 @@
+.treatment-details-container{
+    display: flex;
+    align-items: start;
+    margin: 20px;
+}
+
+.treatment-details-container img{
+    width: 95%;
+    border-radius: 8px;
+}
+
+.treatment-details-container h2{
+    font-size: 45px;
+    font-family: "Josefin sans", sans-serif;
+    margin: 10px 0;
+    color: var(--blue);
+}
+
+
+.treatment-details-container p{
+    font-size: 20px;
+    line-height: 35px;
+    margin: 15px 0;
+    font-family: "Roboto slab", sans-serif;
+    color: var(--black);
+}
+
+.appointment-confirm-btn{
+    text-align: center;
+    margin: 40px auto 60px;
+}
+
+.appointment-confirm-btn button{
+    padding: 15px 30px;
+    font-size: 20px;
+    font-family: "Roboto slab", sans-serif;
+    background-color: var(--blue);
+    border-radius: 10px;
+    color: var(--white);
+    border: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px){
+    .treatment-details-container{
+        flex-direction: column;
+    }
+
+    .treatment-details-container h2{
+        margin: 25px 0;
+    }
+}

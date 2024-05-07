@@ -30,15 +30,15 @@ const SocialLogin = () => {
             </div>
 
             <div className="social-login-options">
-                {googleLoading ? <Loading /> : <img onClick={() => {
+                <img onClick={() => {
                     signInWithGoogle();
-                }} src={google} alt="...." />}
-                {githubLoading ? <Loading /> : <img onClick={() => {
+                }} src={google} alt="...." />
+                <img onClick={() => {
                     signInWithGithub();
-                }} src={github} alt="...." />}
-                {facebookLoading ? <Loading /> : <img onClick={() => {
+                }} src={github} alt="...." />
+                <img onClick={() => {
                     signInWithFacebook();
-                }} src={facebook} alt="...." />}
+                }} src={facebook} alt="...." />
             </div>
 
             {(googleError || githubError || facebookError) && <div className="input-error-container">

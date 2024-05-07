@@ -14,9 +14,11 @@ const Blogs = () => {
         <div>
             <Header></Header>
             <div className="blogs-container">
+                <div style={{margin: "0 15px"}}>
                 <div className="page-heading">
                     <p>Discover Blogs</p>
                     <FontAwesomeIcon icon={faNewspaper} />
+                </div>
                 </div>
 
                 <BlogCards></BlogCards>

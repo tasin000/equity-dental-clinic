@@ -47,7 +47,7 @@ const HomeLayout = () => {
                     <ServiceCards treatmentsState={[sliced_services, loading, error]}></ServiceCards>
 
                     <div onClick={() => navigate('/services')} className="main-btn services-view-all-btn">
-                        View All Treatments
+                        <button>View All Treatments</button>
                     </div>
                 </div>
             </div>

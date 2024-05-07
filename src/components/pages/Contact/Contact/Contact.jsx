@@ -12,9 +12,11 @@ const Contact = () => {
             <Header></Header>
             <div className="container">
                 <div className="contact-container">
+                    <div style={{margin: "0 15px"}}>
                     <div className="page-heading">
                         <p>Connect with Us</p>
                         <FontAwesomeIcon icon={faPhone} />
+                    </div>
                     </div>
                     <div className="contact-options my-large">
                         <div className="w-50">

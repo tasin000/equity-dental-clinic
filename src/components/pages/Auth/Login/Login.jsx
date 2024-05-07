@@ -58,9 +58,11 @@ const Login = () => {
             <div className="container">
                 <div style={{fontFamily: "Roboto slab"}}><Toaster /></div>
                 <div className="auth-form-container">
+                    <div style={{margin: "0 15px"}}>
                     <div className="page-heading">
                         <p>Login</p>
                         <FontAwesomeIcon icon={faRightToBracket} />
+                    </div>
                     </div>
 
                     <div className="auth-form">

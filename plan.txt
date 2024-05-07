@@ -21,7 +21,7 @@
 // optionals
 -> checkout page will be dynamic ✅
 -> checkout page will have a form for checkout details ❌
--> after filling the form, user will be redirected to thank you page 
+-> after filling the form, user will be redirected to thank you page ✅
 
 
 
@@ -68,4 +68,5 @@ bonus:
 - add more contents in footer ✅
 - multiple account with same email ✅
 
-error: social login loading, navbar toggler
+
+- remain: appointment button and thank you page

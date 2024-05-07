@@ -15,9 +15,11 @@ const About = () => {
 
                 
                     <div className="container">
+                    <div style={{margin: "0 15px"}}>
                     <div className="page-heading">
                         <p>Know About Me</p>
                         <FontAwesomeIcon icon={faAddressCard} />
+                    </div>
                     </div>
                     <div className="about-container">
                     <div className="w-50">

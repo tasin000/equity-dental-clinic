@@ -19,9 +19,11 @@ const ServicesLayout = () => {
 
             <div className="container">
                 <div className="services-container">
+                    <div style={{margin: "0 15px"}}>
                     <div className='page-heading'>
                         <p>Treatments Provided by Us</p>
                         <FontAwesomeIcon icon={faUserDoctor} />
+                    </div>
                     </div>
                     <ServiceCards treatmentsState={[treatments, loading, error]}></ServiceCards>
                 </div>
