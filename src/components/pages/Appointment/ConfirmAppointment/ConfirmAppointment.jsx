@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import likeBtn from "../../../../assets/images/gif/like.gif";
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +15,13 @@ const ConfirmAppointment = () => {
             <span>Back to Home</span>
             <FontAwesomeIcon icon={faArrowLeftLong} />
             </Link>
+=======
+
+const ConfirmAppointment = () => {
+    return (
+        <div>
+            
+>>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Appointment.css";
 import { useParams } from "react-router-dom";
 import Footer from '../../../shared/Footer/Footer';
+<<<<<<< HEAD
 import Header from '../../../shared/Header/Header';
 import ConfirmAppointment from '../ConfirmAppointment/ConfirmAppointment';
 
@@ -77,6 +78,24 @@ const Appointment = () => {
 
             <div className='appointment-confirm-btn'><button onClick={() => setConfirmed(true)} >Confirm Appointment</button></div>
 
+=======
+import useFetch from '../../../../hooks/useFetch';
+import Loading from '../../../shared/Loading/Loading';
+import ConfirmAppointment from '../ConfirmAppointment/ConfirmAppointment';
+import Header from '../../../shared/Header/Header';
+
+const Appointment = () => {
+    const [treatments, loading] = useFetch("treatments.json");
+    console.log(treatments);
+    return (
+        <div className='appointment-container'>
+            <Header></Header>
+
+            <div className="container">
+
+            </div>
+
+>>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
             <Footer></Footer>
         </div>
     );

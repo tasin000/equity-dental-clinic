@@ -109,7 +109,10 @@ const SignUp = () => {
                         <p>Sign Up</p>
                         <FontAwesomeIcon icon={faUser} />
                     </div>
+<<<<<<< HEAD
                     </div>
+=======
+>>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
                     <div style={{ fontFamily: "'Roboto slab', 'sans-serif'" }}><Toaster /></div>
                     <div className="auth-form">
                         <form onSubmit={handleSignUp}>

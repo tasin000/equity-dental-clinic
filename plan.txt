@@ -68,5 +68,9 @@ bonus:
 - add more contents in footer ✅
 - multiple account with same email ✅
 
+<<<<<<< HEAD
 
 - remain: appointment button and thank you page
+=======
+error: social login loading, navbar toggler
+>>>>>>> df3676e027d7e329f9f68b522c2f3b4c23b85574
