@@ -6,7 +6,7 @@ import Header from '../../../shared/Header/Header';
 import ConfirmAppointment from '../ConfirmAppointment/ConfirmAppointment';
 
 const Appointment = () => {
-    const {serviceId} = useParams();
+    const { serviceId } = useParams();
     const [confirmed, setConfirmed] = useState(false);
 
     const treatments = [
@@ -54,9 +54,8 @@ const Appointment = () => {
         }
     ];
     const treatment = treatments.find(x => x.id === Number(serviceId));
-    console.log(treatment);
 
-    if(confirmed){
+    if (confirmed) {
         return <ConfirmAppointment />;
     }
 
